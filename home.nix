@@ -1,12 +1,9 @@
 { config, pkgs, ... }:
-let
-  myAliases = {
-    ll = "ls -l";
-    al = "ls -la";
-    ".." = "cd ..";
-  };
-in
+
 {
+  imports = [
+    ./sh.nix
+  ];
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "anddevel";
@@ -74,11 +71,6 @@ in
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
-  };
-
-  programs.bash = {
-    enable = true;
-    shellAliases = myAliases;
   };
 
 
