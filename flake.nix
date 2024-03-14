@@ -8,9 +8,10 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    nix-doom-emacs.url = "github:nix-community/nix-doom-emacs";
   };
 
-  outputs = { self, nixpkgs, home-manager, disko, ... }@inputs:
+  outputs = { self, nixpkgs, home-manager, nix-doom-emacs, disko, ... }@inputs:
     let
       lib = nixpkgs.lib;
       system = "x86_64-linux";
@@ -23,8 +24,8 @@
         specialArgs.inputs = inputs;
         modules = [
           disko.nixosModules.disko
-          ./disko-config.nix
-          ./configuration.nix 
+          ./nixos/disko-config.nix
+          ./nixos/configuration.nix 
         ];
       };
     };
@@ -32,8 +33,9 @@
     homeConfigurations = {
       anddevel = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home.nix ];
+        modules = [ ./home-manager/home.nix ];
       };
+      
     };
   };
 
