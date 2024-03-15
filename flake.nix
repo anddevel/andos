@@ -24,8 +24,8 @@
         specialArgs.inputs = inputs;
         modules = [
           disko.nixosModules.disko
-          ./nixos/disko-config.nix
-          ./nixos/configuration.nix 
+          ./system/disko-config.nix
+          ./system/configuration.nix 
         ];
       };
     };
@@ -33,7 +33,7 @@
     homeConfigurations = {
       anddevel = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        modules = [ ./home-manager/home.nix ];
+        modules = [ ./users/home.nix ];
       };
       
     };
