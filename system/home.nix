@@ -8,7 +8,7 @@
 
   imports = [ 
     nix-doom-emacs.hmModule
-    ../../users/sh.nix #shell config
+    # ../../users/sh.nix #shell config
     ../../users/doom.nix
   ];
   
@@ -27,7 +27,7 @@
     mpv
     yt-dlp
     ffmpeg
-  ]) ++ ([ pkg-kdenlive.kdenlive ]);
+  ]) ++ ([ pkgs-kdenlive.kdenlive ]);
 
   home.sessionVariables = {
     EDITOR = "emacs";
