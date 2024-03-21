@@ -7,15 +7,19 @@
   programs.home-manager.enable = true;
 
   imports = [ 
-    nix-doom-emacs.hmModule
-    # ../../users/sh.nix #shell config
-    ../../users/doom.nix
+    ../users/sh.nix #shell config
   ];
   
   home.stateVersion = "23.11";
 
   home.packages = (with pkgs; [
     alacritty
+    emacs-gtk
+    gh-markdown-preview
+    shellcheck
+    fd
+    ripgrep
+    nixfmt
     google-chrome
     git
     vim

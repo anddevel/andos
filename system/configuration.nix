@@ -105,7 +105,6 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     git
-    emacs
     steam
     obs-studio
     alacritty
